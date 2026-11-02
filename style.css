@@ -1,0 +1,165 @@
+/* Family recipe site: mobile-first, readable, tight ingredient lists. */
+
+:root {
+  --bg: #fbf8f3;
+  --fg: #2b2622;
+  --muted: #6b625a;
+  --accent: #a4492a;
+  --rule: #e6ded3;
+  --chip: #f0e8dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1917;
+    --fg: #efe8e0;
+    --muted: #a69d93;
+    --accent: #e08b68;
+    --rule: #3a3430;
+    --chip: #2b2623;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2rem; margin: 0.5rem 0; }
+h2 { font-size: 1.4rem; margin: 2rem 0 0.5rem; padding-top: 0.6rem; border-top: 1px solid var(--rule); }
+h3 { font-size: 1.1rem; margin: 1.25rem 0 0.35rem; }
+
+a { color: var(--accent); }
+
+/* Slim site header on recipe pages: site name doubles as the link home. */
+.site-bar {
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.back {
+  display: inline-block;
+  padding: 0.35rem 0 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+/* Tags and meta */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  background: var(--chip);
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+
+.meta { margin: 0.25rem 0 1rem; color: var(--muted); }
+
+/* Photo: full image is kept on disk; display is cropped to a square. */
+.photo { margin: 1rem 0 0.5rem; }
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Ingredients: deliberately tight line spacing. */
+.ingredients {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.35;
+}
+
+.ingredients li { margin: 0; }
+
+/* Steps */
+.steps { margin: 0; padding-left: 1.6rem; }
+.steps li { margin: 0 0 0.6rem; padding-left: 0.2rem; }
+
+.notes p { margin: 0.25rem 0 0.75rem; }
+
+/* Index page */
+.site-title { margin-bottom: 0.25rem; }
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.recipe-list {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.recipe-list li { border-top: 1px solid var(--rule); }
+
+.recipe-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.8rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipe-list img {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-list .name {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
+
+.recipe-list .sub {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .site-bar { display: none; }
+  .photo img { max-width: 3in; aspect-ratio: auto; }
+  h2 { border-top: none; }
+}
