@@ -110,7 +110,29 @@ a { color: var(--accent); }
 
 .notes p { margin: 0.25rem 0 0.75rem; }
 
+/* Small chapter line above the recipe title */
+.chapter {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.chapter a { color: inherit; text-decoration: none; }
+
 /* Index page */
+.chapter-group .recipe-list { margin: 0.5rem 0 0; }
+
+.chapter-heading {
+  margin: 1.75rem 0 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.85rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .site-title { margin-bottom: 0.25rem; }
 
 .subtitle {
